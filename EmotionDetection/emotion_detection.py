@@ -39,7 +39,6 @@ def emotion_detector(text_to_analyze):
 
     # Parsing the JSON response from the API
     formatted_response = json.loads(response.text)
-    print(formatted_response)
 
     # Extracting emotions and calculate the dominant emotion
     response_emotions = analyze_emotions(formatted_response)
