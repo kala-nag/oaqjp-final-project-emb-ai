@@ -46,7 +46,7 @@ def emotion_detector(text_to_analyze):
 
     # Write response to a text file
     output_text = json.dumps(response_emotions, sort_keys=False, indent=4)
-    with open('3a_output_formatting', 'w', encoding='UTF-8') as outfile:
+    with open('emotion.txt', 'w', encoding='UTF-8') as outfile:
         outfile.write(output_text)
 
     # Return the response text from the API
