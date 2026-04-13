@@ -16,7 +16,11 @@ def emotion_detect():
     answer_sadness = json.dumps({k:response[k] for k in ['sadness']})[1:-2]
     answer_wo_sadness = json.dumps({k:response[k] for k in ["anger", "disgust", "fear", "joy"]})[1:-2]
     dominant = response['dominant_emotion']
-    return f"For the given statement, the system response is {answer_wo_sadness} and {answer_sadness}. The dominant emotion is {dominant}."
+
+    if dominant:
+        return f"For the given statement, the system response is {answer_wo_sadness} and {answer_sadness}. The dominant emotion is {dominant}."
+    # dominant == None
+    return "Invalid text! Please try again!"
 
 
 @app.route("/")
@@ -28,6 +32,4 @@ def render_index_page():
 
 
 if __name__ == "__main__":
-    ''' This functions executes the flask app and deploys it on localhost:5000
-    '''
     app.run(host="0.0.0.0", port=5000)

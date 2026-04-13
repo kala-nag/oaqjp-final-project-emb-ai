@@ -45,7 +45,7 @@ def emotion_detector(text_to_analyze):
         response_emotions = {}
     elif response.status_code == 400:
     # error handling for status code 400
-        response_emotions = {k:None for k in ["anger", "disgust", "fear", "joy", "sadness", "dominant_emotion"]}
+       response_emotions = {k:None for k in ["anger", "disgust", "fear", "joy", "sadness", "dominant_emotion"]}
     else:
         response_emotions = analyze_emotions(formatted_response)
 
